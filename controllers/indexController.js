@@ -1,6 +1,5 @@
 //Models
-const Profile = require('../models/Profile')
-const Admin = require('../models/Admin');
+const Profile = require('../models/Profile');
 
 module.exports.index = (req, res)=>{
     Profile.find().then(result=>{

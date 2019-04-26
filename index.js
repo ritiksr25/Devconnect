@@ -25,7 +25,7 @@ app.use(passport.session());
 //Configurations
 require('dotenv').config();
 require('./config/dbconnection');
-//require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 //Global variable
 app.use((req, res, next)=>{
@@ -36,7 +36,7 @@ app.use((req, res, next)=>{
 
 //Routes
 app.use('/', require('./routes/api/v1/index'));
-app.use('/admin', require('./routes/api/v2/admin'));
+app.use('/admin', require('./routes/api/v1/admin'));
 
 
 //start server
