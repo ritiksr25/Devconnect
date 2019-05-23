@@ -2,49 +2,52 @@ const mongoose = require('mongoose');
 const ProfileSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Admin', 
+        ref: 'User', 
         required: true
     },
-    mobile: { type: Number, default: ' ' },
-    github: { type: String, default: ' ' },
-    linkedin: { type: String, default: ' ' },
-    facebook: { type: String, default: ' ' },
-    twitter: { type: String, default: ' ' },
-    gmail: { type: String, default: ' ' },
-    website: { type: String, default: ' ' },
-    resume: { type: String, default: ' ' },
-    address: { type : String, default: ' ' },
-    headline: { type: String, default: ' ' },
-    summary: { type: String, default: ' ' },
+    handle: { type: String, required: true },
+    headline: { type: String },
+    summary: { type: String },
+    mobile: { type: Number },
+    address: { type : String },
+    links: {
+        github: { type: String },
+        linkedin: { type: String },
+        facebook: { type: String },
+        twitter: { type: String },
+        gmail: { type: String },
+        instagram: { type: String },
+        website: { type: String },
+    },
     academics: [{
-        course: { type: String, default: ' ' },
-        start: { type: Date, default: ' ' },
-        end: { type: Date, default: ' ' },
-        stream: { type: String, default: ' ' },
-        description: { type: String, default: ' ' },
-        institute: { type: String, default: ' ' }
+        course: { type: String, required: true },
+        start: { type: Date, required: true },
+        end: { type: Date },
+        present: { type: Boolean },
+        stream: { type: String, required: true },
+        description: { type: String },
+        institute: { type: String, required: true }
     }],
     skills: [{
-        skill: { type: String, default: ' ' },
-        level: { type: String, default: ' ' }
+        skill: { type: String, required: true },
+        level: { type: Number, required: true }
     }],
     projects: [{
-        title: { type: String, default: ' ' },
-        details: { type: String, default: ' ' },
-        start: { type: Date, default: ' ' },
-        end: { type: Date, default: ' ' },
-        source: { type: String, default: ' ' },
-        url: { type: String, default: ' ' }
+        title: { type: String, required: true },
+        details: { type: String, required: true },
+        start: { type: Date, required: true },
+        end: { type: Date },
+        present: { type: Boolean },
+        source: { type: String },
+        url: { type: String }
     }],
-    achievements: [{
-        title: { type: String, default: ' ' }      
-    }],
-    workexp: [{
-        desgn: { type: String, default: ' ' },
-        org: { type: String, default: ' ' },
-        start: { type: Date, default: ' ' },
-        end: { type: Date, default: ' ' },
-        desc: { type: String, default: ' ' }
+    workexps: [{
+        desgn: { type: String, required: true },
+        org: { type: String, required: true },
+        start: { type: Date, required: true },
+        end: { type: Date },
+        present: { type: Boolean},
+        description: { type: String }
     }]
 
 })

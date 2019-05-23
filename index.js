@@ -14,18 +14,18 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    saveUninitialized: false,
-    resave: false
-}));
+//app.use(session({
+//    secret: process.env.SESSION_SECRET,
+//    saveUninitialized: false,
+//    resave: false
+//}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 //Configurations
 require('dotenv').config();
 require('./config/dbconnection');
-require('./config/passport')(passport);
+require('./config/jwt');
 
 //Global variable
 app.use((req, res, next)=>{
@@ -36,7 +36,8 @@ app.use((req, res, next)=>{
 
 //Routes
 app.use('/', require('./routes/api/v1/index'));
-app.use('/admin', require('./routes/api/v1/admin'));
+app.use('/users', require('./routes/api/v1/users'));
+app.use('/profile', require('./routes/api/v1/profile'));
 
 
 //start server

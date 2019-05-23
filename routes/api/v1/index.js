@@ -9,8 +9,7 @@ const indexController = require('../../../controllers/indexController');
 //index route
 router.get('/', indexController.index);
 //contact form
-router.get('/contact', indexController.contact);
-router.post('/contact', indexController.contactProcess);
+router.post('/contact', indexController.contact);
 
 //export router
 module.exports = router;

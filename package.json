@@ -1,14 +1,14 @@
 {
-  "name": "Portfolio",
+  "name": "DevConnect",
   "version": "1.0.0",
-  "description": "Portfolio with details updateable by only admin access",
+  "description": "An app to view users profiles and their posts",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "Portfolio"
+    "url": "DevConnect"
   },
   "author": "Ritik Srivastava",
   "license": "ISC",
